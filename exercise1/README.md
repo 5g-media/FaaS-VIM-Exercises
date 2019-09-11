@@ -55,7 +55,7 @@ At All-in-one UI, select Editor. Another tab is created with your OSM GUI.
 
 From OSM GUI select NS Instances (left pane), select New NS (right pane) fill in the following fields
 
-* Name:           select a name (e.g. `hello_world_instance`) to give to your instance (TODO: review naming guidelines)
+* Name:           select a name (e.g. `hello_world_instance`) to give to your instance (review [naming guidelines](../GUIDELINES.md))
 * Description:    give short description
 * Nsd Id:         select your `hello_world` NS package
 * Vim Account Id: select the VIM account. There should be one related to FaaS
