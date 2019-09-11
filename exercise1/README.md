@@ -12,7 +12,7 @@ wsk -i action create /guest/excercises/hello_world --kind python:2 hello_world.p
 
 ### Create skeleton descriptors
 
-```
+```bash
 ~/devops/descriptor-packages/tools/generate_descriptor_pkg.sh -c --nsd -t vnfd hello_world --image /guest/excercises/hello_world
 ```
 
@@ -31,7 +31,7 @@ cp hello_world_nsd.yaml hello_world_nsd
 
 The below commands create the packages to be onboarded to OSM
 
-```
+```bash
 ~/devops/descriptor-packages/tools/generate_descriptor_pkg.sh -a -t vnfd hello_world_vnfd
 ~/devops/descriptor-packages/tools/generate_descriptor_pkg.sh -a -t nsd hello_world_nsd
 ```
@@ -68,13 +68,13 @@ The VNF you just developed can only be accessed from whithin kubernetes cluster 
 
 Your first step would be retrieve its ipaddrss from OSM. This can be achieve via simple curl command 
 
-```
+```bash
 curl 127.0.0.1:5002/osm/hello_world_instance | jq .vnfs[0].ip_address 
 ```
 
 Create a pod inside kubernetes and invoke `hello` endpoint of your first VNF
 
-```
+```bash
 kubectl run curl-pod --image=radial/busyboxplus:curl -i --tty --rm
 
 curl <ipaddress>:5000/hello
