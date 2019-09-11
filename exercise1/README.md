@@ -66,13 +66,13 @@ At All-in-one UI, select Editor.
 
 The VNF you just developed can only be accessed from whithin kubernetes cluster (e.g from inside of your minikube).
 
-Your first step would be retrieve its ipaddrss from OSM. This can be achieve via simple curl command 
+Your first step would be to retrieve your VNF ipaddress. This can be achieved via simple OSM curl command
 
 ```bash
 curl 127.0.0.1:5002/osm/hello_world_instance | jq .vnfs[0].ip_address 
 ```
 
-Create a pod inside kubernetes and invoke `hello` endpoint of your first VNF
+Create a pod inside kubernetes and invoke `hello` endpoint of your first VNF. Issue curl with the ipaddress retrieved above.
 
 ```bash
 kubectl run curl-pod --image=radial/busyboxplus:curl -i --tty --rm
@@ -84,5 +84,5 @@ You see hello message. Congragulations !
 
 Hit ^D to exit the container. It automatically deleted.
 
-* Continue to 2nd excercise (TBD)
+## Continue to 2nd excercise (TBD-put link)
 
