@@ -1,3 +1,5 @@
+Ensure to follow [prerequisites](../prerequisites.md) first
+
 Description: TODO
 
 ## Pre-onboard your openwhisk action
