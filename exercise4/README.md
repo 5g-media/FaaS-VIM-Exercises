@@ -31,6 +31,8 @@ curl -X POST -d '{"service_ports": ["5000"], "action_params": {"name": "Avi"}}' 
 ### Instantiate the network service
 
 **Note:** If you have `hello_world_instance` running -- delete it.
+
+
 Instantiate again your network service under `hello_world_instance` name. You can follow [this step](../exercise1/README.md#instantiate-the-network-service) in exercise 1.
 
 
@@ -58,6 +60,6 @@ Hello, Avi from my first FaaS VNF!
 
 ## What next
 
-Next, we will create 2 VNFs that communicates with each other.
+Next, we will create 2 VNFs that communicate with each other.
 
 Continue to [5th exercise](../exercise5)
