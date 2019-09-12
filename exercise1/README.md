@@ -6,7 +6,11 @@ Description: TODO
 
 ### Create your action
 
-At all-in-one UI open "Lean OW Web CLI"  invoke the following command
+We are going to create an openwhisk action out from our VNF source code. We create this action using runtime semantic (i.e. proviging runtime kind).
+
+In the next exercise we will learn how to achieve the same by using the black-box semantic action.
+
+At all-in-one UI open "Lean OW Web CLI" invoke the following command
 
 ```
 wsk -i action create /guest/excercises/hello_world --kind python:2 hello_world.py
@@ -38,7 +42,7 @@ At all-in-one UI open "Validator".
 
 ## Onboard the packages to OSM
 
-At All-in-one UI, select "Editor". Another tab is created with your OSM GUI.
+At All-in-one UI, select "Editor".
 
 * Select VNF Packages (left pane) and drag/drop the VNF package you created at previous step
 * Select NS  Packages (left pane) and drag/drop the NS package you created at previous step
@@ -82,8 +86,9 @@ You see hello message. Congragulations !
 
 Hit ^D to exit the container. It automatically deleted.
 
-## What nextContinue to 2nd excercise (TBD-put link)
 
-Next, we will learn how to define day0 parameters for our VNF and add attach it with Ingress port so that it can be extrenally accessed.
+## What next
 
-[2nd-excercise](../exercise2)
+Next, we will develop the same VNF this time creating is as a black-box openwhisk action.
+
+Continue to [2nd excercise](../exercise2)
