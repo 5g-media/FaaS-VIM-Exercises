@@ -6,6 +6,8 @@ Description: TODO
 
 ### Create your action
 
+At all-in-one UI open "Lean OW Web CLI"  invoke the following command
+
 ```
 wsk -i action create /guest/excercises/hello_world --kind python:2 hello_world.py
 ```
@@ -68,7 +70,9 @@ At All-in-one UI, select Editor.
 
 The VNF you just developed can only be accessed from whithin kubernetes cluster (e.g from inside of your minikube).
 
-Your first step would be to retrieve your VNF ipaddress. This can be achieved via simple OSM curl command
+Your first step would be to retrieve your VNF ipaddress. This can be achieved via simple OSM curl command.
+
+At All-in-one UI open "OSM Web UI" and invoke the following
 
 ```bash
 curl 127.0.0.1:5002/osm/hello_world_instance | jq .vnfs[0].ip_address 
