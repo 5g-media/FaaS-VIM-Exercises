@@ -1,6 +1,8 @@
-Ensure to follow [prerequisites](../prerequisites.md) first
+**Note:** Ensure you already followed [prerequisites](../prerequisites.md)
 
-Description: TODO
+## Exercise Description
+
+TODO
 
 ## Pre-onboard your openwhisk action
 
@@ -68,7 +70,7 @@ The VNF you just developed can only be accessed from whithin kubernetes cluster 
 
 Your first step would be to retrieve your VNF ipaddress. This can be achieved via simple OSM curl command.
 
-At All-in-one UI open "OSM Web UI" and invoke the following
+At All-in-one UI open "OSM Web CLI" and invoke the following
 
 ```bash
 curl 127.0.0.1:5002/osm/hello_world_instance | jq .vnfs[0].ip_address 

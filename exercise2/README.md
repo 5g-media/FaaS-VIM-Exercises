@@ -1,6 +1,9 @@
-Ensure to follow [prerequisites](../prerequisites.md) first
 
-Description: TODO
+**Note:** Ensure you already followed [prerequisites](../prerequisites.md)
+
+## Exercise Description
+
+TODO
 
 ## Pre-onboard your openwhisk action
 
@@ -74,7 +77,7 @@ At All-in-one UI, select Editor.
 
 Check to see that the VNF is in running state.
 
-At All-in-one UI open "OSM Web UI" and invoke the following
+At All-in-one UI open "OSM Web CLI" and invoke the following
 
 ```bash
 curl 127.0.0.1:5002/osm/hello_world_blackbox_instance | jq . 
@@ -85,6 +88,6 @@ You can interact with your VNF as done in the previous exercise
 
 ## What next
 
-Next, we will learn how to define day0 parameters for our VNF and attach it with an Ingress port so that it can be extrenally accessed.
+Next, we will learn how to attach the VNF an Ingress port so that it can be extrenally accessed.
 
 Continue to [3nd exercise](../exercise3)
