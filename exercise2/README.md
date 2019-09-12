@@ -90,4 +90,4 @@ You can interact with your VNF as done in the previous exercise
 
 Next, we will learn how to attach the VNF an Ingress port so that it can be extrenally accessed.
 
-Continue to [3nd exercise](../exercise3)
+Continue to [3rd exercise](../exercise3)
