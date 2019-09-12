@@ -14,42 +14,34 @@ wsk -i action create /guest/excercises/hello_world --kind python:2 hello_world.p
 
 ## Create VNF/NS packages
 
-### Create skeleton descriptors
+At all-in-one UI open "Validator".
 
-```bash
-~/devops/descriptor-packages/tools/generate_descriptor_pkg.sh -c --nsd -t vnfd hello_world --image /guest/excercises/hello_world
-```
+### Produce VNFD package
 
-
-
-### Copy example yaml files into skeleton
-
-```
-cp hello_world_vnfd.yaml hello_world_vnfd
-cp hello_world_nsd.yaml hello_world_nsd
-```
+* Select OSM Schema.
+* Select Type VNFD.
+* Copy/paste the contents of `hello_world_vnfd.yaml`
+* Hit 'Validate'. Fix any errors.
+* Once validates successully hit 'Export to your computer'
 
 
+### Produce NSD package
 
-### Package the VNF/NS
-
-The below commands create the packages to be onboarded to OSM
-
-```bash
-~/devops/descriptor-packages/tools/generate_descriptor_pkg.sh -a -t vnfd hello_world_vnfd
-~/devops/descriptor-packages/tools/generate_descriptor_pkg.sh -a -t nsd hello_world_nsd
-```
-
-`hello_world_vnfd.tar.gz` and `hello_world_nsd.tar.gz` packages should be created in your current folder.
+* Hit 'Reset'.
+* Select OSM Schema.
+* Select Type NSD.
+* Copy/paste the contents of `hello_world_nsd.yaml`
+* Hit 'Validate'. Fix any errors.
+* Once validates successully hit 'Export to your computer'
 
 
 
 ## Onboard the packages to OSM
 
-At All-in-one UI, select Editor. Another tab is created with your OSM GUI.
+At All-in-one UI, select "Editor". Another tab is created with your OSM GUI.
 
-* Select VNF Packages (left pane) and drag/drop the VNF package
-* Select NS  Packages (left pane) and drag/drop the NS package
+* Select VNF Packages (left pane) and drag/drop the VNF package you created at previous step
+* Select NS  Packages (left pane) and drag/drop the NS package you created at previous step
 
 
 
@@ -90,5 +82,8 @@ You see hello message. Congragulations !
 
 Hit ^D to exit the container. It automatically deleted.
 
-## Continue to 2nd excercise (TBD-put link)
+## What nextContinue to 2nd excercise (TBD-put link)
 
+Next, we will learn how to define day0 parameters for our VNF and add attach it with Ingress port so that it can be extrenally accessed.
+
+[2nd-excercise](../exercise2)
