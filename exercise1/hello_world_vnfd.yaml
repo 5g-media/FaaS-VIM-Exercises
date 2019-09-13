@@ -13,7 +13,7 @@ vnfd-catalog:
         -   count: 1
             description: helloworld_vnfd
             id: helloworld_vnfd
-            image: /guest/excercises/hello_world
+            image: /guest/exercises/hello_world
             interface:
             -   external-connection-point-ref: eth0
                 name: eth0

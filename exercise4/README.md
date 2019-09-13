@@ -14,7 +14,7 @@ We are going to update our action we created in exercise 1, with the updated cod
 At all-in-one UI open "Lean OW Web CLI" invoke the following command
 
 ```
-wsk -i action update /guest/excercises/hello_world   hello_world.py
+wsk -i action update /guest/exercises/hello_world  hello_world.py
 ```
 
 

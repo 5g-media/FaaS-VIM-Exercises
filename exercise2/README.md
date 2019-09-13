@@ -22,7 +22,7 @@ docker push <your dockerhub userid>/hello_world_blackbox
 Replace `<your dockerhub userid>` with yours
 
 ```
-wsk -i action create /guest/excercises/hello_world_blackbox  --docker <your dockerhub userid>/hello_world_blackbox
+wsk -i action create /guest/exercises/hello_world_blackbox  --docker <your dockerhub userid>/hello_world_blackbox
 ```
 
 ## Create VNF/NS packages

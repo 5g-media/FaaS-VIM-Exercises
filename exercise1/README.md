@@ -15,7 +15,7 @@ In the next exercise we will learn how to achieve the same by using the black-bo
 At all-in-one UI open "Lean OW Web CLI" invoke the following command
 
 ```
-wsk -i action create /guest/excercises/hello_world --kind python:2 hello_world.py
+wsk -i action create /guest/exercises/hello_world --kind python:2 hello_world.py
 ```
 
 ## Create VNF/NS packages

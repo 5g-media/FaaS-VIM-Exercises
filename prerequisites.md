@@ -15,5 +15,5 @@ Log in with your chrome browser `http://<VM ip address>:8401/`
 At all in one UI open "Lean OW Web CLI" and invoke the following command
 
 ```
-wsk -i package create excercises
+wsk -i package create exercises
 ```
