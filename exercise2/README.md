@@ -3,7 +3,9 @@
 
 ## Exercise Description
 
-In this exercise, we will learn how to package our application as black-box openwhisk action. We will go over the steps of dockerizing it and the base docker image it derives from.
+In this exercise, we will learn how to package our application as black-box openwhisk action. We will manually dockerize our application so that it can be invoked as an openshik action.
+
+As we can see, our app `hello_world.py` starts with `#!/usr/bin/env python`. This because the file is now being invoked as a generic process (i.e the file is being invoked as an executable) in contrast to a regular pythonic runtime as demonstrated in previous exercise. Moreover, our docker image derives from a special base one: `docker5gmedia/5gmedia-base`. This base image contains openwhisk artifacts needed by the image we build so that it can be invoked as an openwhisk action.
 
 
 ## Pre-onboard your openwhisk action
