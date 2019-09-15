@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 
-import os
-import requests
-import subprocess
-import sys
 from gevent.wsgi import WSGIServer
 
 import flask

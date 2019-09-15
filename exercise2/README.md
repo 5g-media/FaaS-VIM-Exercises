@@ -3,26 +3,33 @@
 
 ## Exercise Description
 
-TODO
+In this exercise, we will learn how to package our application as black-box openwhisk action. We will go over the steps of dockerizing it and the base docker image it derives from.
+
 
 ## Pre-onboard your openwhisk action
 
+In below commands, replace `<your docker id>` with yours.
+
+
 ### Package your code as black-box action
 
-At all-in-one UI open "Lean OW Web CLI" and invoke these commands to build your black-box action. Replace `<your dockerhub userid>` with yours.
+At all-in-one UI open "Lean OW Web CLI".
+
+Invoke these commands to build your black-box image
 
 ```bash
-docker build --tag "<your dockerhub userid>/hello_world_blackbox" --force-rm=true .
-docker login --username=<your dockerhub userid>
-docker push <your dockerhub userid>/hello_world_blackbox
+docker build --tag "<your docker id>/hello_world_blackbox" --force-rm=true .
+docker login --username=<your docker id>
+docker push <your docker id>/hello_world_blackbox
 ```
+
 
 ### Create your action
 
-Replace `<your dockerhub userid>` with yours
+Create your action passing the docker image we just created
 
 ```
-wsk -i action create /guest/exercises/hello_world_blackbox  --docker <your dockerhub userid>/hello_world_blackbox
+wsk -i action create /guest/exercises/hello_world_blackbox  --docker <your docker id>/hello_world_blackbox
 ```
 
 ## Create VNF/NS packages
@@ -31,6 +38,7 @@ At all-in-one UI open "Validator".
 
 ### Produce VNFD package
 
+* Hit 'Reset'.
 * Select OSM Schema.
 * Select Type VNFD.
 * Copy/paste the contents of `hello_world_vnfd_blackbox.yaml`
@@ -64,26 +72,19 @@ From OSM GUI select NS Instances (left pane), select New NS (right pane) fill in
 
 * Name:           select a name (e.g. `hello_world_blackbox_instance`) to give to your instance (review [naming guidelines](../GUIDELINES.md))
 * Description:    give short description
-* Nsd Id:         select your `hello_world_blackbox` NS package
-* Vim Account Id: select the VIM account. There should be one related to FaaS
+* Nsd Id:         select `helloworld_nsd_blackbox`
+* Vim Account Id: select FaaS
 
-Wait for the status to become "running".
+Hit 'Create'
 
-At All-in-one UI, select Editor.
+Wait for status to become 'running'
 
 
 
 ## Interact with the VNF
 
-Check to see that the VNF is in running state.
+Follow same instructions as in exercise 1 [interact-with-the-vnf](../exercise1#interact-with-the-vnf) to send your blackbox VNF hello message.
 
-At All-in-one UI open "OSM Web CLI" and invoke the following
-
-```bash
-curl 127.0.0.1:5002/osm/hello_world_blackbox_instance | jq . 
-```
-
-You can interact with your VNF as done in the previous exercise
 
 
 ## What next

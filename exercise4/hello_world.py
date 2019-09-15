@@ -1,7 +1,3 @@
-import os
-import requests
-import subprocess
-import sys
 from gevent.pywsgi import WSGIServer
 
 import flask

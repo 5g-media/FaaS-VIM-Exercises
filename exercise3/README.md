@@ -3,25 +3,37 @@
 
 ## Exercise Description
 
-We are going to externally expose your `hello_world` VNF so that it can be externally accessed.
-
-We will mark its local port 5000 to be accessed from the outside.
+In this exercise, we are going to learn how to externally expose our hello world VNF we created in exercise 1.
 
 
 ### Mark VNF port as Ingress
 
-At All-in-one UI open "OSM Web CLI" and invoke the following
+Our HTTP server serves on port 5000. Therefore, mark it as ingress. 
+
+At All-in-one UI open "OSM Web CLI".
+
+
+Invoke the following
 
 ```bash
-curl -X POST -d '{"service_ports": ["5000"]}' http://127.0.0.1:5002/conf/hello_world_instance/helloworld_vnfd/1
+curl -X POST -d '{"service_ports": ["5000"]}' http://127.0.0.1:5002/conf/hello_world_instance_external/helloworld_vnfd/1
 ```
 
 
-### Instantiate the network service
 
-**Note:** If you have `hello_world_instance` running -- delete it.
+## Instantiate the network service
 
-Instantiate again your network service under `hello_world_instance` name. You can follow [this step](../exercise1/README.md#instantiate-the-network-service) in exercise 1.
+At All-in-one UI, select "Editor" then select NS Instances (left pane), select New NS (right pane) fill in the following fields
+
+* Name:           select name: `hello_world_instance_external`. It is important for the name to match the one used for ingress port definition.
+* Description:    give short description
+* Nsd Id:         select `hello_world_nsd`
+* Vim Account Id: select FaaS
+
+Hit 'Create'
+
+Wait for status to become 'running'
+
 
 
 ### Interact with the VNF
@@ -30,10 +42,12 @@ The VNF you just instantiated can now be externally accessed.
 
 Your next step would be to retrieve its external port.
 
-At All-in-one UI open "OSM Web CLI" and invoke the following
+At All-in-one UI open "OSM Web CLI".
+
+Invoke the following
 
 ```bash
-curl 127.0.0.1:5002/osm/hello_world_instance | jq .vnfs[0].vim_info.service.service_ports.\"5000\"
+curl 127.0.0.1:5002/osm/hello_world_instance_external | jq .vnfs[0].vim_info.service.service_ports.\"5000\"
 ```
 
 Now, you can also access it from the local host or any other host connected to the VM. Replace `external_port` with the port printed in previous step
