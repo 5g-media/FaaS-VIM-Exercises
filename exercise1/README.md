@@ -40,7 +40,7 @@ wsk -i action create /guest/exercises/hello_world --kind python:2 hello_world.py
 [VNFD generation tool](https://osm.etsi.org/wikipub/index.php/Creating_your_own_VNF_package)
 
 ```
-generate_descriptor_pkg.sh -c --nsd -t vnfd ./hello-world --image /guest/exersices/hello_world
+generate_descriptor_pkg.sh -c --nsd -t vnfd ./hello_world --image /guest/exercises/hello_world
 ```
 
 
