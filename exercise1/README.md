@@ -27,6 +27,7 @@ wsk -i action create /guest/exercises/hello_world --kind python:2 hello_world.py
 
 ## At all-in-one UI open "Validator".
 
+
 ### Produce VNFD package
 
 * From the drop down menu select "OSM Schema";
@@ -34,14 +35,6 @@ wsk -i action create /guest/exercises/hello_world --kind python:2 hello_world.py
 * Copy/paste the contents of `hello_world_vnfd.yaml`;
 * Hit 'Validate'. Fix any errors;
 * Once validated successully hit 'Export to your computer'
-
-## An automated way to generate VNFD skeleton
-
-[VNFD generation tool](https://osm.etsi.org/wikipub/index.php/Creating_your_own_VNF_package)
-
-```
-generate_descriptor_pkg.sh -c --nsd -t vnfd ./hello_world --image /guest/exercises/hello_world
-```
 
 
 ### Produce NSD package
@@ -52,6 +45,23 @@ generate_descriptor_pkg.sh -c --nsd -t vnfd ./hello_world --image /guest/exercis
 * Copy/paste the contents of `hello_world_nsd.yaml`
 * Hit 'Validate'. Fix any errors.
 * Once validated successully hit 'Export to your computer'
+
+
+### An automated way to generate VNFD skeleton
+
+[VNFD generation tool](https://osm.etsi.org/wikipub/index.php/Creating_your_own_VNF_package)
+
+Please use the below version that was adapted for FaaS VNFs
+
+```bash
+../tools/generate_descriptor_pkg.sh -c --nsd -t vnfd hello_world --image /guest/exercises/hello_world
+```
+
+You will notice two yaml descriptor files were created
+
+`hello_world_vnfd/hello_world_vnfd.yaml` and `hello_world_nsd/hello_world_nsd.yaml`
+
+You can pass them to validator and create the packages
 
 
 

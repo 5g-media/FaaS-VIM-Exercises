@@ -36,6 +36,20 @@ wsk -i action create /guest/exercises/hello_world_blackbox  --docker <your docke
 
 ## Create VNF/NS packages
 
+
+### Produce skeleton package
+
+```bash
+../tools/generate_descriptor_pkg.sh -c --nsd -t vnfd hello_world_blackbox --image /guest/exercises/hello_world_blackbox
+```
+
+You will notice two yaml descriptor files were created
+
+`hello_world_blackbox_vnfd/hello_world_blackbox_vnfd.yaml` and `hello_world_blackbox_nsd/hello_world_blackbox_nsd.yaml`
+
+You can pass them to validator and create the packages
+
+
 At all-in-one UI open "Validator".
 
 ### Produce VNFD package
@@ -74,7 +88,7 @@ From OSM GUI select NS Instances (left pane), select New NS (right pane) fill in
 
 * Name:           select a name (e.g. `hello_world_blackbox_instance`) to give to your instance (review [naming guidelines](../GUIDELINES.md))
 * Description:    give short description
-* Nsd Id:         select `helloworld_nsd_blackbox`
+* Nsd Id:         select `hello_world_blackbox_nsd`
 * Vim Account Id: select FaaS
 
 Hit 'Create'

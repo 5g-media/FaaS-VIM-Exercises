@@ -26,7 +26,7 @@ At All-in-one UI open "OSM Web CLI".
 Invoke the following
 
 ```bash
-curl -X POST -d '{"service_ports": ["5000"], "action_params": {"name": "Avi"}}' http://127.0.0.1:5002/conf/hello_world_instance_day0/helloworld_vnfd/1
+curl -X POST -d '{"service_ports": ["5000"], "action_params": {"name": "Avi"}}' http://127.0.0.1:5002/conf/hello_world_instance_day0/hello_world_vnfd/1
 ```
 
 
