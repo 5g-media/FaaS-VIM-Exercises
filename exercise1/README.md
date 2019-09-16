@@ -2,17 +2,20 @@
 
 ## Exercise Description
 
-We will start with a simple hello world FaaS VNF that implements an HTTP server that serves `hello` endpoint. We will learn how to 'wrap' it as an openwhisk action and we will create and validate VNF/NS descriptors and finally, instantiate it.
+We will start with a simple hello world FaaS VNF that implements an HTTP server that serves `hello` endpoint. We will learn how to 'wrap' it as an OpenWhisk action, and create a Virtual Network Function (VNF) out of it, onboard it as a Network Service (NS) in the 5G-MEDIA platform, and instantiate it. We will go through all the steps starting from the VNF development to validation to onboarding and execution. 
 
 ## Pre-onboard your openwhisk action
 
 ### Create your action
 
-We are going to create an openwhisk action out from our VNF source code. We create this action using runtime semantic (i.e. providing runtime kind).
+We are going to create an openwhisk action out of our source code. We create this action using a standard runtime environment via specifying  a correct runtime "kind".
 
-In the next exercise we will learn how to achieve the same by using the black-box semantic action.
+(In Exercise 2 we will learn how to achieve the same via a "black-box" action (i.e., using a Docker container without using the source code directly).
 
-At all-in-one UI open "Lean OW Web CLI".
+
+## In the all-in-one UI open "Lean OW Web CLI".
+
+## Clone this repo
 
 Invoke the following command
 
@@ -22,15 +25,23 @@ wsk -i action create /guest/exercises/hello_world --kind python:2 hello_world.py
 
 ## Create VNF/NS packages
 
-At all-in-one UI open "Validator".
+## At all-in-one UI open "Validator".
 
 ### Produce VNFD package
 
-* Select OSM Schema.
-* Select Type VNFD.
-* Copy/paste the contents of `hello_world_vnfd.yaml`
-* Hit 'Validate'. Fix any errors.
+* From the drop down menu select "OSM Schema";
+* From the drop down menu select descriptor type "VNFD";
+* Copy/paste the contents of `hello_world_vnfd.yaml`;
+* Hit 'Validate'. Fix any errors;
 * Once validated successully hit 'Export to your computer'
+
+## An automated way to generate VNFD skeleton
+
+[VNFD generation tool](https://osm.etsi.org/wikipub/index.php/Creating_your_own_VNF_package)
+
+```
+generate_descriptor_pkg.sh -c --nsd -t vnfd ./hello-world --image /guest/exersices/hello_world
+```
 
 
 ### Produce NSD package
