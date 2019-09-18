@@ -168,7 +168,7 @@ function write_vnfd_tmpl() {
     desc_file="${name}.yaml"
 
     cat >$desc_file <<EOF
-vnfd-catalog:
+vnfd:vnfd-catalog:
     vnfd:
     -   id: ${name}
         name: ${name}
@@ -253,7 +253,7 @@ function write_nsd_tmpl() {
     desc_file="${name}.yaml"
 
     cat >$desc_file <<EOF
-nsd-catalog:
+nsd:nsd-catalog:
     nsd:
     -   id: ${name}
         name: ${name}
@@ -269,7 +269,7 @@ nsd-catalog:
             # The member-vnf-index needs to be unique, starting from 1
             # vnfd-id-ref is the id of the VNFD
             # Multiple constituent VNFDs can be specified
-        -   member-vnf-index: "1"
+        -   member-vnf-index: 1
             vnfd-id-ref: ${vnfd}
 
 EOF
@@ -295,7 +295,7 @@ EOF
             # member-vnf-index-ref - entry from constituent vnf
             # vnfd-id-ref - VNFD id
             # vnfd-connection-point-ref - connection point name in the VNFD
-            -   member-vnf-index-ref: "1"
+            -   member-vnf-index-ref: 1
                 vnfd-id-ref: ${vnfd}
                 # NOTE: Validate the entry below
                 vnfd-connection-point-ref: vnf-cp0
