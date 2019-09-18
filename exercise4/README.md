@@ -1,6 +1,3 @@
-**Note:** Ensure you already followed [prerequisites](../prerequisites.md)
-
-
 ## Exercise Description
 
 In this exercise, we will learn how to modify our hello world application to handle parameters.

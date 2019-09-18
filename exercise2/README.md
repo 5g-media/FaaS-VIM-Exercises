@@ -1,6 +1,3 @@
-
-**Note:** Ensure you already followed [prerequisites](../prerequisites.md)
-
 ## Exercise Description
 
 In this exercise, we will learn how to package our application as black-box openwhisk action. We will manually dockerize our application so that it can be invoked as an openshik action.

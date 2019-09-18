@@ -1,6 +1,3 @@
-**Note:** Ensure you already followed [prerequisites](../prerequisites.md)
-
-
 ## Exercise Description
 
 In this exercise, we are going to learn how to externally expose our hello world VNF we created in exercise 1.

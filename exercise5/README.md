@@ -1,5 +1,3 @@
-**Note:** Ensure you already followed [prerequisites](../prerequisites.md)
-
 ## Exercise Description
 
 In this exercise are going to create two VNFs: ping and pong that communicates with each other.

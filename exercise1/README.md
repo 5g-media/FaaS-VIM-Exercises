@@ -1,5 +1,3 @@
-**Note:** Ensure you already followed [prerequisites](../prerequisites.md)
-
 ## Exercise Description
 
 We will start with a simple hello world FaaS VNF that implements an HTTP server that serves `hello` endpoint. We will learn how to 'wrap' it as an OpenWhisk action, and create a Virtual Network Function (VNF) out of it, onboard it as a Network Service (NS) in the 5G-MEDIA platform, and instantiate it. We will go through all the steps starting from the VNF development to validation to onboarding and execution. 
