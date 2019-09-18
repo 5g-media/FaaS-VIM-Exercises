@@ -1,3 +1,7 @@
+## Exercise Description
+
+In this exercise we are going to delploy a real vtranscoder. We will send it media frames and watch its various metrics in SDK monitoring dashboard.
+
 ### Create your action
 
 Create the action passing transcoder's docker image
@@ -53,6 +57,16 @@ At all-in-one UI open "Validator".
 * Hit 'Validate'. Fix any errors.
 * Once validates successully hit 'Export to your computer'
 
+
+## Onboard the packages to OSM
+
+At All-in-one UI, select "Editor".
+
+* Select VNF Packages (left pane) and drag/drop the VNF package you created at previous step
+* Select NS  Packages (left pane) and drag/drop the NS package you created at previous step
+
+
+
 ### Mark vTrancoder port and set day0 parameters
 
 In order to send the vtranscoder frames, we need to open its ports and start it with predefined parameters.
@@ -104,9 +118,17 @@ At All-in-one UI open "OSM Web CLI".
 Invoke the following
 
 ```bash
-curl 127.0.0.1:5002/osm/vtranscoder_instance | jq .vnfs[0].vim_info.service.service_ports.\"18090\"
-curl 127.0.0.1:5002/osm/vtranscoder_instance | jq .vnfs[0].vim_info.service.service_ports.\"18091\"
-curl 127.0.0.1:5002/osm/vtranscoder_instance | jq .vnfs[0].vim_info.service.service_ports.\"18092\"
+PORT1=`curl 127.0.0.1:5002/osm/vtranscoder_instance | jq .vnfs[0].vim_info.service.service_ports.\"18090\"`
+PORT2=`curl 127.0.0.1:5002/osm/vtranscoder_instance | jq .vnfs[0].vim_info.service.service_ports.\"18091\"`
+PORT3=`curl 127.0.0.1:5002/osm/vtranscoder_instance | jq .vnfs[0].vim_info.service.service_ports.\"18092\"`
+```
+
+Ensure ports retrieved (it can take few seconds, repeat above commands if needed)
+
+```bash
+echo $PORT1
+echo $PORT2
+echo $PORT3
 ```
 
 ## Stream media frames (using simulation tool)
@@ -120,13 +142,19 @@ cd FaaS-VIM-Exercises/exercise6/
 
 
 ```bash
-../tools/simulator2 -a 0 -i 127.0.0.1 -r 30145 -s 30051 -c 32032 -f ~/_SpaceWars_Player1_Reconstruction_0.pay -n 500
+../tools/simulator2 -a 0 -i 127.0.0.1 -r $PORT1 -s $PORT2 -c $PORT3 -f ~/_SpaceWars_Player1_Reconstruction_0.pay -n 500
 ```
 
 You should see similar output
 
 ```
-TODO
+TRANSCODING SIMULATION START
+Number of frames in pay file: 500
+OUTGOING CONNECTION ESTABLISHED (0 ms to connect)
+INGOING CONNECTION ESTABLISHED (1 ms to connect)
+STREAMED FRAME: 1 --> 335 KB
+STREAMED FRAME: 2 --> 335 KB
+...
 ```
 
 ### View monitor dashboard
@@ -134,4 +162,7 @@ TODO
 
 During the streaming you should notice an increase in network metrics as well as cpu and memory.
 
-TBD  
+At all-in-one UI open "Service monitoring"
+
+Select SDK dashboard
+  

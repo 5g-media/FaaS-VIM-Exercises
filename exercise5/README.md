@@ -143,3 +143,10 @@ We should see it is working:
 pongpongpongpongpongpongpongpongpongpong
 
 ```
+
+## What next
+
+Now, lets continue with real VNF examples such as vtranscoder that processes media frames.
+
+Continue to [6th exercise](../exercise6)
+
