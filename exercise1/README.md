@@ -15,8 +15,6 @@ We are going to create an openwhisk action out of our source code. We create thi
 
 ## In the all-in-one UI open "Lean OW Web CLI".
 
-## Clone this repo
-
 Invoke the following command
 
 ```
@@ -51,17 +49,23 @@ wsk -i action create /guest/exercises/hello_world --kind python:2 hello_world.py
 
 [VNFD generation tool](https://osm.etsi.org/wikipub/index.php/Creating_your_own_VNF_package)
 
-Please use the below version that was adapted for FaaS VNFs
+At all-in-one UI open "Lean OW Web CLI".
+
+```
+cd FaaS-VIM-Exercises/exercise1/
+```
+
+Run skeleton creation tool
 
 ```bash
 ../tools/generate_descriptor_pkg.sh -c --nsd -t vnfd hello_world --image /guest/exercises/hello_world
 ```
 
-You will notice two yaml descriptor files were created
+You will notice two yaml descriptor files were created under vnfd and nsd folders
 
 `hello_world_vnfd/hello_world_vnfd.yaml` and `hello_world_nsd/hello_world_nsd.yaml`
 
-You can pass them to validator and create the packages
+Pass these to validator to create the packages
 
 
 

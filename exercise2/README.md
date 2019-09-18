@@ -37,18 +37,27 @@ wsk -i action create /guest/exercises/hello_world_blackbox  --docker <your docke
 ## Create VNF/NS packages
 
 
-### Produce skeleton package
+### An automated way to generate VNFD skeleton
+
+[VNFD generation tool](https://osm.etsi.org/wikipub/index.php/Creating_your_own_VNF_package)
+
+At all-in-one UI open "Lean OW Web CLI".
+
+```
+cd FaaS-VIM-Exercises/exercise1/
+```
+
+Run skeleton creation tool
 
 ```bash
 ../tools/generate_descriptor_pkg.sh -c --nsd -t vnfd hello_world_blackbox --image /guest/exercises/hello_world_blackbox
 ```
 
-You will notice two yaml descriptor files were created
+You will notice two yaml descriptor files were created under vnfd and nsd folders
 
 `hello_world_blackbox_vnfd/hello_world_blackbox_vnfd.yaml` and `hello_world_blackbox_nsd/hello_world_blackbox_nsd.yaml`
 
-You can pass them to validator and create the packages
-
+You will notice two yaml descriptor files were created under vnfd and nsd folders. Pass these to validator to create the packages
 
 At all-in-one UI open "Validator".
 
@@ -57,7 +66,7 @@ At all-in-one UI open "Validator".
 * Hit 'Reset'.
 * Select OSM Schema.
 * Select Type VNFD.
-* Copy/paste the contents of `hello_world_vnfd_blackbox.yaml`
+* Copy/paste the contents of `hello_world_blackbox_vnfd/hello_world_blackbox_vnfd.yaml`
 * Hit 'Validate'. Fix any errors.
 * Once validates successully hit 'Export to your computer'
 
@@ -67,7 +76,7 @@ At all-in-one UI open "Validator".
 * Hit 'Reset'.
 * Select OSM Schema.
 * Select Type NSD.
-* Copy/paste the contents of `hello_world_nsd_blackbox.yaml`
+* Copy/paste the contents of `hello_world_blackbox_nsd/hello_world_blackbox_nsd.yaml`
 * Hit 'Validate'. Fix any errors.
 * Once validates successully hit 'Export to your computer'
 

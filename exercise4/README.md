@@ -11,7 +11,9 @@ In this exercise, we will learn how to modify our hello world application to han
 
 We are going to update our action we created in exercise 1, with the updated code.
 
-At all-in-one UI open "Lean OW Web CLI" invoke the following command
+At all-in-one UI open "Lean OW Web CLI".
+
+Invoke the following
 
 ```
 wsk -i action update /guest/exercises/hello_world  hello_world.py
