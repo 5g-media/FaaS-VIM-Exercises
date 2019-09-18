@@ -49,11 +49,10 @@ Run skeleton creation tool
 ../tools/generate_descriptor_pkg.sh -c --nsd -t vnfd hello_world_blackbox --image /guest/exercises/hello_world_blackbox
 ```
 
-You will notice two yaml descriptor files were created under vnfd and nsd folders
+You will notice two yaml descriptor files created under vnfd and nsd folders
 
 `hello_world_blackbox_vnfd/hello_world_blackbox_vnfd.yaml` and `hello_world_blackbox_nsd/hello_world_blackbox_nsd.yaml`
 
-You will notice two yaml descriptor files were created under vnfd and nsd folders. Pass these to validator to create the packages
 
 At all-in-one UI open "Validator".
 
