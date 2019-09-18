@@ -10,6 +10,9 @@ We are going to create an openwhisk action out from our VNF source code. We crea
 
 At all-in-one UI open "Lean OW Web CLI".
 
+```
+cd FaaS-VIM-Exercises/exercise5/
+```
 
 Invoke the following
 

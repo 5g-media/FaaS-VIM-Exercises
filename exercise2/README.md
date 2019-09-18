@@ -16,6 +16,10 @@ At all-in-one UI open "Lean OW Web CLI".
 
 Invoke these commands to build your black-box image
 
+```
+cd FaaS-VIM-Exercises/exercise2/
+```
+
 ```bash
 docker build --tag "<your docker id>/hello_world_blackbox" --force-rm=true .
 docker login --username=<your docker id>
@@ -38,11 +42,6 @@ wsk -i action create /guest/exercises/hello_world_blackbox  --docker <your docke
 
 [VNFD generation tool](https://osm.etsi.org/wikipub/index.php/Creating_your_own_VNF_package)
 
-At all-in-one UI open "Lean OW Web CLI".
-
-```
-cd FaaS-VIM-Exercises/exercise1/
-```
 
 Run skeleton creation tool
 

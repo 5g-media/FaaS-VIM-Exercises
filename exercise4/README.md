@@ -10,6 +10,10 @@ We are going to update our action we created in exercise 1, with the updated cod
 
 At all-in-one UI open "Lean OW Web CLI".
 
+```
+cd FaaS-VIM-Exercises/exercise4/
+```
+
 Invoke the following
 
 ```
