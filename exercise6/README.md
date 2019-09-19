@@ -16,6 +16,13 @@ cd FaaS-VIM-Exercises/exercise6/
 wsk -i action create /guest/exercises/vtranscoder --docker docker5gmedia/transcoder_2_8_4
 ```
 
+Transcoder runtime image is large. Depending on the network conditions this can take a fairly amount of time and can cause timeouts for the action invocation. To avoid this, pull the image in advance
+
+```
+docker pull docker5gmedia/transcoder_2_8_4
+```
+
+
 ## Create VNF/NS packages
 
 
@@ -113,7 +120,7 @@ The VNF you just instantiated can now be externally accessed.
 
 Your next step would be to retrieve its ports.
 
-At All-in-one UI open "OSM Web CLI".
+At All-in-one UI open **"OW Lean CLI"**
 
 Invoke the following
 
@@ -133,8 +140,7 @@ echo $PORT3
 
 ## Stream media frames (using simulation tool)
 
-
-At all-in-one UI open "Lean OW Web CLI".
+**Remain on the same terminal from previous commands**
 
 ```
 cd FaaS-VIM-Exercises/exercise6/
