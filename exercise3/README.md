@@ -1,6 +1,6 @@
 ## Exercise Description
 
-In this exercise, we are going to learn how to externally expose our hello world VNF we created in exercise 1.
+In this exercise, we are going to learn how to expose our hello world VNF from the exercise 1, as a service.
 
 
 ### Mark VNF port as Ingress
