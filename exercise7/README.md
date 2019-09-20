@@ -4,17 +4,32 @@ TODO.
 
 [VLC](https://www.videolan.org/vlc/) should be installed on your laptop to watch the stream produced by the detection service.
 
-### Create your action
 
-Create the action passing vdetection's docker image
+In below commands, replace `<your docker id>` with yours.
+
+### Package RTMP server as black-box action
 
 At all-in-one UI open "Lean OW Web CLI".
+
+Invoke these commands to build your black-box image
 
 ```
 cd FaaS-VIM-Exercises/exercise7/
 ```
 
+```bash
+docker build --tag "<your docker id>/nginx_rtmp" --force-rm=true .
+docker login --username=<your docker id>
+docker push <your docker id>/nginx_rtmp
 ```
+
+
+### Create your actions
+
+Create your action passing the docker image we just created
+
+```bash
+wsk -i action create /guest/exercises/nginx_rtmp  --docker <your docker id>/nginx_rtmp
 wsk -i action create /guest/exercises/vdetection --docker docker5gmedia/action-vdetection
 ```
 
@@ -102,16 +117,6 @@ Hit 'Create'
 Wait for status to become 'running'
 
 
-## RTMP Server
-
-Before continuing with vdetection configuration, we need to start an RTMP server for the VNF to stream to
-
-```bash
-docker run -p 1935:1935 -p 8080:8080 -e RTMP_STREAM_NAMES=detection -d jasonrivers/nginx-rtmp
-```
-
-
-
 ### Configure vdetection VNF to start streaming
 
 We are going to internact with the VNF by calling its `rest/detections/start` endpoint passing it the parameters. It will start streaming to the RTPM server we just started.
@@ -122,13 +127,17 @@ Retrieve the port and pass it to start command
 
 ```bash
 PORT1=`curl 127.0.0.1:5002/osm/vdetection_instance | jq .vnfs[0].vim_info.service.service_ports.\"3145\"`
+echo $PORT1
 ```
 
 Ensure port retrieved (it can take few seconds, repeat above commands if needed)
 
+Retrieve ipaddress of RTMP server
+
+```bash
+curl 127.0.0.1:5002/osm/vdetection_instance | jq .vnfs[1].ip_address
 ```
-echo $PORT1
-```
+
 
 ```bash
 curl -H  "Content-Type: application/json" -X POST http://127.0.0.1:$PORT1/rest/detections/start -d '{
@@ -146,7 +155,7 @@ curl -H  "Content-Type: application/json" -X POST http://127.0.0.1:$PORT1/rest/d
       },
       "serve": {
         "frmt": "flv",
-        "url": "rtmp://127.0.0.1:1935/detection/demo"
+        "url": "rtmp://<RTMP ipaddress>:1935/detection/demo"
       }
     }
   }
