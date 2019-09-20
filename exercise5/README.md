@@ -1,6 +1,6 @@
 ## Exercise Description
 
-In this exercise are going to create two VNFs: ping and pong that communicates with each other.
+In this exercise are going to create two VNFs: ping and pong that communicate with each other.
 
 ## Pre-onboard your openwhisk action
 
