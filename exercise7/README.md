@@ -130,6 +130,8 @@ Ensure port retrieved (it can take few seconds, repeat above commands if needed)
 echo $PORT1
 ```
 
+Invoke the following **replacing `all-in-one VM IP` with the VM IP address** you got from the instructor
+
 ```bash
 curl -H  "Content-Type: application/json" -X POST http://127.0.0.1:$PORT1/rest/detections/start -d '{
   "config": {
@@ -146,7 +148,7 @@ curl -H  "Content-Type: application/json" -X POST http://127.0.0.1:$PORT1/rest/d
       },
       "serve": {
         "frmt": "flv",
-        "url": "rtmp://127.0.0.1:1935/detection/demo"
+        "url": "rtmp://<all-in-one VM IP>:1935/detection/demo"
       }
     }
   }
@@ -158,9 +160,12 @@ Ensure curl returns 200
 "status":{"code":200,"msg":"ok"}
 ```
 
+**Tip:** You can check whether vdetection publishes its results by pointing your browser to: `http://<VM IP>:8080/stat`. 
+You should notice a `demo` link in `publishing` state with an increase of `In Bytes`. It may take several seconds for the stream to become ready (refresh browser until it apprears).
+
 ### Open VLC
 
-From your laptop open VLC and point it to all-in-one VM (the ipaddress you received from the instructor)
+From your laptop open VLC and point it to the below url **replacing `all-in-one VM IP` with the VM IP address** you got from the instructor
 
 VLC -> Media -> Open Network Stream...
 
