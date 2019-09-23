@@ -171,4 +171,9 @@ During the streaming you should notice an increase in network metrics as well as
 At all-in-one UI open "Service monitoring"
 
 Select SDK dashboard
-  
+
+## What next
+
+Our next example is related to a VNF that does face recognition.
+
+Continue to [7th exercise](../exercise7)
