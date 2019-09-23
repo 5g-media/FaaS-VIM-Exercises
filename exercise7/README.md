@@ -45,20 +45,6 @@ docker pull docker5gmedia/action-vdetection
 
 ### An automated way to generate VNFD skeleton
 
-[VNFD generation tool](https://osm.etsi.org/wikipub/index.php/Creating_your_own_VNF_package)
-
-
-Run skeleton creation tool
-
-
-```bash
-../tools/generate_descriptor_pkg.sh -c --nsd -t vnfd vdetection --image /guest/exercises/vdetection
-```
-
-You will notice two yaml descriptor files were created under vnfd and nsd folders
-
-`vdetection_vnfd/vdetection_vnfd.yaml` and `vdetection_nsd/vdetection_nsd.yaml`
-
 At all-in-one UI open "Validator".
 
 
@@ -67,17 +53,18 @@ At all-in-one UI open "Validator".
 * Hit 'Reset'.
 * Select OSM Schema.
 * Select Type VNFD.
-* Copy/paste the contents of `vdetection_vnfd/vdetection_vnfd.yaml`
+* Copy/paste the contents of `vdetection_vnfd.yaml`
 * Hit 'Validate'. Fix any errors.
 * Once validates successully hit 'Export to your computer'
 
+Repreat above steps for `nginx_rtmp_vnfd.yaml`
 
 ### Produce NSD package
 
 * Hit 'Reset'.
 * Select OSM Schema.
 * Select Type NSD.
-* Copy/paste the contents of `vdetection_nsd/vdetection_nsd.yaml`
+* Copy/paste the contents of `vdetection_nsd.yaml`
 * Hit 'Validate'. Fix any errors.
 * Once validates successully hit 'Export to your computer'
 
@@ -91,7 +78,7 @@ At All-in-one UI, select "Editor".
 
 
 
-### Mark VNF port as Ingress
+### Mark VNF ports as Ingress
 
 At All-in-one UI open "OSM Web CLI".
 
@@ -100,6 +87,7 @@ Invoke the following
 
 ```bash
 curl -X POST -d '{"service_ports": ["3145"]}' http://127.0.0.1:5002/conf/vdetection_instance/vdetection_vnfd/1
+curl -X POST -d '{"service_ports": ["1935", "8080"]}' http://127.0.0.1:5002/conf/vdetection_instance/nginx_rtmp_vnfd/2
 ```
 
 
@@ -132,7 +120,7 @@ echo $PORT1
 
 Ensure port retrieved (it can take few seconds, repeat above commands if needed)
 
-Retrieve ipaddress of RTMP server
+Next, retrieve ipaddress of RTMP VNF
 
 ```bash
 curl 127.0.0.1:5002/osm/vdetection_instance | jq .vnfs[1].ip_address
@@ -155,7 +143,7 @@ curl -H  "Content-Type: application/json" -X POST http://127.0.0.1:$PORT1/rest/d
       },
       "serve": {
         "frmt": "flv",
-        "url": "rtmp://<RTMP ipaddress>:1935/detection/demo"
+        "url": "rtmp://<All in one VM IP>:1935/detection/demo"
       }
     }
   }
@@ -167,11 +155,26 @@ Ensure curl returns 200
 "status":{"code":200,"msg":"ok"}
 ```
 
+**Tip:** You can check whether vdetection publishes its results by pointing your browser to: `http://<VM IP>:<ingress port of 8080>/stat`. 
+You should notice a `demo` link in `publishing` state with an increase of `In Bytes`. It may take several seconds for the stream to become ready (refresh browser until it apprears).
+
+```bash
+curl 127.0.0.1:5002/osm/vdetection_instance | jq .vnfs[1].vim_info.service.service_ports.\"8080\"
+```
+
+
 ### Open VLC
+
+At first you need the ingress port so that your VLC can play the stream of RTMP VNF.
+
+At All-in-one UI open "OSM Web CLI".
+
+```bash
+curl 127.0.0.1:5002/osm/vdetection_instance | jq .vnfs[1].vim_info.service.service_ports.\"1935\"
+```
 
 From your laptop open VLC and point it to all-in-one VM (the ipaddress you received from the instructor)
 
 VLC -> Media -> Open Network Stream...
 
-Enter `rtmp://<all-in-one VM IP>:1935/detection/demo`
-
+Enter `rtmp://<all-in-one VM IP>:<ingress port of 1935>/detection/demo`
