@@ -105,7 +105,15 @@ Wait for status to become 'running'
 
 Follow same instructions as in exercise 1 [interact-with-the-vnf](../exercise1#interact-with-the-vnf) to send your blackbox VNF hello message.
 
+```
+curl 127.0.0.1:5002/osm/hello_world_blackbox_instance | jq .vnfs[0].ip_address
+```
 
+```
+kubectl run curl-pod --image=radial/busyboxplus:curl -i --tty --rm
+
+curl <ipaddress>:5000/hello
+```
 
 ## What next
 
