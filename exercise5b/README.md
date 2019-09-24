@@ -69,5 +69,5 @@ wskdeploy undeploy --projectname pingpong_project
 And let's redeploy it again:
 
 ```
-wskdeploy sync -m manifest.yaml
+wskdeploy sync -m new_manifest.yaml
 ```
