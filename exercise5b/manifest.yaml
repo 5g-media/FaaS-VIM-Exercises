@@ -1,0 +1,12 @@
+project:
+  name: pingpong_project
+packages:
+  exercises:
+    version: 1.0
+    actions:
+      ping:
+        function: ../exercise5/ping.py
+        runtime: python:2
+      pong:
+        function: ../exercise5/pong.py
+        runtime: python:2

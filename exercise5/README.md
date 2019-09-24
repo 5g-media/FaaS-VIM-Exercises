@@ -150,3 +150,4 @@ Now, lets continue with real VNF examples such as vtranscoder that processes med
 
 Continue to [6th exercise](../exercise6)
 
+But.. perhaps you want to familiarized with yourself with the `wskdeploy` tool. In that case, quickly jump to [5b exercise](../exercise5b)
