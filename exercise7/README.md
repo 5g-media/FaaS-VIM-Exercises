@@ -1,12 +1,12 @@
 ## Exercise Description
 
-TODO.
+In this exercise, we are going to create, onboard, instantiate, and deploy a serverless face recognition VNF. 
 
 [VLC](https://www.videolan.org/vlc/) should be installed on your laptop to watch the stream produced by the detection service.
 
 ### Create your action
 
-Create the action passing vdetection's docker image
+Create the action using vdetection's docker image
 
 At all-in-one UI open "Lean OW Web CLI".
 
