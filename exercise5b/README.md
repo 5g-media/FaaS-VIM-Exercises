@@ -60,3 +60,14 @@ wskdeploy export --projectname pingpong_project -m new_manifest.yaml
 
 An `exercise` folder will get created to contain the action assets as well as an additional manifest yaml file to desribe them.
 
+Now let's delete the managed project:
+
+```
+wskdeploy undeploy --projectname pingpong_project
+```
+
+And let's redeploy it again:
+
+```
+wskdeploy sync -m manifest.yaml
+```
