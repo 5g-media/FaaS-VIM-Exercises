@@ -1,6 +1,6 @@
 ## Exercise Description
 
-In this exercise will will pre-onboard the same actions but using `wskdeploy` tool this time. We will go over the process of definitn them, importing them under predefined project. And then exporting the assets of that project to the local filesystem.
+In this exercise will will pre-onboard the same actions but using `wskdeploy` tool this time. We will go over the process of defining them, importing them under predefined project. And then exporting the assets of that project to the local filesystem.
 
 ## Resources for the exercise
 [wskdeploy documentation and examples](https://github.com/apache/openwhisk-wskdeploy#here-are-some-quick-links-for)
