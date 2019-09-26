@@ -140,7 +140,6 @@ echo $PORT3
 
 ## Stream media frames (using simulation tool)
 
-**Remain on the same terminal from previous commands**
 
 ```
 cd FaaS-VIM-Exercises/exercise6/
