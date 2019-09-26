@@ -81,7 +81,7 @@ In order to send the vtranscoder frames, we need to open its ports and start it 
 At All-in-one UI open "OSM Web CLI".
 
 
-Invoke the following
+Invoke the following to initiate Day 0 configuration parameters for the vTranscoder VNF (whose index in the NSD is 1).
 
 ```bash
 curl -X POST http://127.0.0.1:5002/conf/vtranscoder_instance/vtranscoder_vnfd/1 -d '{
