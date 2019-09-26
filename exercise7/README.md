@@ -81,7 +81,7 @@ At All-in-one UI, select "Editor".
 At All-in-one UI open "OSM Web CLI".
 
 
-Invoke the following
+Invoke the following to initiate Day 0 configuration parameters for the vDetection VNF (whose index in the NSD is 1).
 
 ```bash
 curl -X POST -d '{"service_ports": ["3145"]}' http://127.0.0.1:5002/conf/vdetection_instance/vdetection_vnfd/1
